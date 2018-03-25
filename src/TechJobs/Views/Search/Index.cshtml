@@ -29,31 +29,28 @@
 
 @if (ViewBag.jobs != null)
 {
-
     <h3>@ViewBag.jobs.Count Result(s)</h3>
 
     // TODO #2 - Loop over jobs dictionary and display all job fields 
-    //Get all the clumps of job info -- multiple lines per job
-    <ul>
+        //Get all the clumps of job info -- multiple lines per job
+    <table >
+
         @foreach (Dictionary<string, string> setOfJobDetails in ViewBag.jobs)
         {
-            //Get each separate line within each clump
-            <li>
+                
+                //Get each separate line within each clump
+            <tr class="job-listing">
                 @foreach (KeyValuePair<string, string> singleLine in setOfJobDetails) 
                 {
-                    @singleLine.Key
-                     
-                    @singleLine.Value
-                    <br>
-
-                    
+                    <th>
+                        @singleLine.Key
+                    </th>
+                    <td>
+                        @singleLine.Value  
+                    </td>
                 }
-
-            </li>
-            <br>
-
-
+            </tr>
         }
-    </ul>
-    
+    </table>
 }
+
