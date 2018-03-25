@@ -33,4 +33,27 @@
     <h3>@ViewBag.jobs.Count Result(s)</h3>
 
     // TODO #2 - Loop over jobs dictionary and display all job fields 
+    //Get all the clumps of job info -- multiple lines per job
+    <ul>
+        @foreach (Dictionary<string, string> setOfJobDetails in ViewBag.jobs)
+        {
+            //Get each separate line within each clump
+            <li>
+                @foreach (KeyValuePair<string, string> singleLine in setOfJobDetails) 
+                {
+                    @singleLine.Key
+                     
+                    @singleLine.Value
+                    <br>
+
+                    
+                }
+
+            </li>
+            <br>
+
+
+        }
+    </ul>
+    
 }
