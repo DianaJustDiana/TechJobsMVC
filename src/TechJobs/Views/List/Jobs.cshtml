@@ -4,4 +4,29 @@
 
 @{ 
     // TODO #3 - Use the same list display from Views/Search/Index.cshtml 
+
+   
+    //Get all the clumps of job info -- multiple lines per job
+    <table class="job-listing">
+
+        @foreach (Dictionary<string, string> setOfJobDetails in ViewBag.jobs)
+        {
+                
+            //Get each separate line within each clump
+            <tr>
+                @foreach (KeyValuePair<string, string> singleLine in setOfJobDetails) 
+                {
+                    <th>
+                        @singleLine.Key
+                    </th>
+                    <td>
+                        @singleLine.Value  
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+}
+
+
 }
